@@ -2,17 +2,13 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import SearchInput from "../search/search-Input";
-import { Input } from "../ui/input";
-import { CiSearch } from "react-icons/ci";
 import {
     NavigationMenu,
     NavigationMenuContent,
-    NavigationMenuIndicator,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
-    NavigationMenuViewport,
   } from "@/components/ui/navigation-menu"
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CiFacebook } from "react-icons/ci";
@@ -54,7 +50,7 @@ export default function Navbar() {
             {/* middle nav */}
             <div className="flex flex-row justify-between items-center">
                 <div className="flex flex-row">
-                    <a href="/"><img className="w-40 mr-10 ml-5 pt-2 pb-2"  src="/logo.webp" alt="logo" /></a>
+                    <Link href="/"><img className="w-40 mr-10 ml-5 pt-2 pb-2"  src="/logo.webp" alt="logo" /></Link>
                     <div className="flex gap-5 items-center text-sm">
                     {menuItems.map((item,index)=>(
                         

@@ -1,6 +1,4 @@
-import Navbar from "@/components/navbar/navbar";
 import ProductCard from "@/components/product-card/product-card";
-import Image from "next/image";
 
 export default function Home() {
   return (
