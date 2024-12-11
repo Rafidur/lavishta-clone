@@ -1,6 +1,3 @@
-import { Slash } from "lucide-react";
-import { text } from "stream/consumers";
-
 interface CardProps {
   image?: string;
   title?: string;
