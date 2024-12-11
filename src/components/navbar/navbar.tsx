@@ -15,6 +15,8 @@ import { CiFacebook } from "react-icons/ci";
 import { CiInstagram } from "react-icons/ci";
 import { PiPhoneCallLight } from "react-icons/pi";
 import { PiBagThin } from "react-icons/pi";
+import { FaGithub } from "react-icons/fa";
+import { IoLogoVercel } from "react-icons/io5";
 
 const categories = [
   "Lips",
@@ -41,6 +43,22 @@ export default function Navbar() {
     <div>
       {/* top nav */}
       <div className="flex justify-end border-b-2 h-10 items-center">
+        {/* remove later */}
+        <div className="flex flex-rox gap-2">
+          <div className="text-slate-600 hover:text-black hover:scale-105 transition duration-300">
+            <Link
+              href="https://github.com/Rafidur/lavishta-clone"
+              target="_blank"
+            >
+              <FaGithub size={24} />
+            </Link>
+          </div>
+          <div className="text-slate-600 hover:text-black hover:scale-105 transition duration-300">
+            <Link href="https://lavishta-clone.vercel.app/" target="_blank">
+              <IoLogoVercel size={24} />
+            </Link>
+          </div>
+        </div>
         <div className="border-l-2 p-4 text-xs">LOGIN/REGISTER</div>
       </div>
       {/* middle nav */}
@@ -71,7 +89,7 @@ export default function Navbar() {
         </div>
 
         <div className="flex flex-row gap-1">
-          <div className=" text-slate-500 hover:text-blue-600 hover:scale-110 transition duration-00">
+          <div className=" text-slate-500 hover:text-blue-600 hover:scale-110 transition duration-300">
             <CiFacebook size={34} />
           </div>
           <div className="text-slate-500 hover:text-pink-600 hover:scale-110 transition duration-300">
