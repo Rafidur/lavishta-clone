@@ -1,8 +1,11 @@
 import { Product } from "@/app/models/type";
 import { PullUpWhite } from "./addCart-quickView-pullUp";
 import PercentageTag from "./percentage-tag";
+import LabelTag from "./label-tag";
+import Link from "next/link";
 
 const ProductCard: React.FC<Product> = ({
+  id,
   title,
   image,
   category,
@@ -14,8 +17,11 @@ const ProductCard: React.FC<Product> = ({
   return (
     <div className=" p-2 group">
       <div className="relative ">
-        <img className="w-full h-auto" src={image} alt="image" />
+        <Link href={`/Product/${id}`} passHref>
+          <img className="w-full h-auto" src={image} alt="image" />
+        </Link>
         <PercentageTag percentage={percentage} />
+        <LabelTag label="NEW" />
         <PullUpWhite />
       </div>
       <div className="text-center text-xs">

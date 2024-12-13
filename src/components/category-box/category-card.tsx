@@ -8,7 +8,7 @@ export default async function CategoryCard() {
       <SectionSeparator sectionText="Category" />
       <div className="grid grid-cols-8 gap-8 mt-10 mb-10">
         {categories.map((category) => (
-          <div className="flex flex-col items-center ">
+          <div className="flex flex-col items-center " key={category}>
             {/* Image */}
             <div className="shadow overflow-hidden">
               <img

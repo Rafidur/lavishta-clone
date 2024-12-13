@@ -1,4 +1,3 @@
-import { json } from "stream/consumers";
 import ProductCard from "../product-card/product-card";
 import SectionSeparator from "./section-separator";
 import { Product } from "@/app/models/type";
@@ -12,6 +11,8 @@ export default async function MostPopular() {
       <div className=" grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 divide-x divide-y border">
         {products.map((product: Product) => (
           <ProductCard
+            key={product.id}
+            id={product.id}
             image={product.image}
             title={product.title}
             category={product.category}
