@@ -70,3 +70,7 @@ body {
     @apply bg-background text-foreground;
   }
 }
+/* Prevent scrolling when the modal is open */
+.body--modal-open {
+  overflow: hidden;
+}

@@ -17,6 +17,8 @@ import { PiPhoneCallLight } from "react-icons/pi";
 import { PiBagThin } from "react-icons/pi";
 import { FaGithub } from "react-icons/fa";
 import { IoLogoVercel } from "react-icons/io5";
+import { SheetCart } from "../cart/cart-pop";
+import { SheetLogin } from "../login/login-pop";
 
 const categories = [
   "Lips",
@@ -29,11 +31,12 @@ const categories = [
 ];
 
 const menuItems = [
-  "HOME",
-  "BLOG",
+  "Home",
+  "Blog",
   "OUR_CONTACTS",
   "DELIEVERY_&_RETURN",
   "CONTACT_US",
+  "Product",
 ];
 
 export default function Navbar() {
@@ -59,7 +62,11 @@ export default function Navbar() {
             </Link>
           </div>
         </div>
-        <div className="border-l-2 p-4 text-xs">LOGIN/REGISTER</div>
+        <div className="border-l-2 p-4 text-xs hover:cursor-pointer hover:text-slate-500 ">
+          <SheetLogin
+            triggerContent={<span className="">LOGIN/REGISTER</span>}
+          />
+        </div>
       </div>
       {/* middle nav */}
       <div className="flex flex-row justify-between items-center">
@@ -139,8 +146,8 @@ export default function Navbar() {
             </div>
           </div>
           <div className="flex flex-row gap-1 ">
-            <div>
-              <PiBagThin size={40} />
+            <div className="hover:text-black">
+              <SheetCart triggerContent={<PiBagThin size={40} />} />
             </div>
             <div className="text-xs items-center border-l-2 pl-2 ">
               <div className="font-bold text-pink-600">৳</div>
