@@ -6,7 +6,11 @@ import { Button } from "@/components/ui/button";
 import { SelectVariants } from "@/components/product-page/select-variants";
 import { BreadcrumbWithCustomSeparator } from "@/components/product-page/product-breadcrumb";
 
-export default async function ProductDemo({ params }: any) {
+export default async function ProductDemo({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const { slug } = params;
   const res = await fetch(`https://fakestoreapi.com/products/${slug}`);
   const product = await res.json();
