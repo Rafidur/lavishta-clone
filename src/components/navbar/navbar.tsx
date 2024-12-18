@@ -43,69 +43,91 @@ export default function Navbar() {
   const pathName = usePathname();
 
   return (
-    <div>
+    <header>
       {/* top nav */}
-      <div className="flex justify-end border-b-2 h-10 items-center">
+      <section className="flex justify-end border-b-2 h-10 items-center">
         {/* remove later */}
+        {/* github and vercel links */}
         <div className="flex flex-rox gap-2">
           <div className="text-slate-600 hover:text-black hover:scale-105 transition duration-300">
             <Link
               href="https://github.com/Rafidur/lavishta-clone"
               target="_blank"
+              aria-label="Github Repository link"
             >
               <FaGithub size={24} />
             </Link>
           </div>
           <div className="text-slate-600 hover:text-black hover:scale-105 transition duration-300">
-            <Link href="https://lavishta-clone.vercel.app/" target="_blank">
+            <Link
+              href="https://lavishta-clone.vercel.app/"
+              target="_blank"
+              aria-label="Vercel Deployment link"
+            >
               <IoLogoVercel size={24} />
             </Link>
           </div>
         </div>
-        <div className="border-l-2 p-4 text-xs hover:cursor-pointer hover:text-slate-500 ">
+        <button
+          className="border-l-2 p-4 text-xs hover:cursor-pointer hover:text-slate-500"
+          aria-label="Login/Register"
+        >
           <SheetLogin
             triggerContent={<span className="">LOGIN/REGISTER</span>}
           />
-        </div>
-      </div>
+        </button>
+      </section>
       {/* middle nav */}
-      <div className="flex flex-row justify-between items-center">
+      <nav
+        className="flex flex-row justify-between items-center"
+        aria-label="Main Navigation"
+      >
         <div className="flex flex-row">
           <Link href="/">
             <img
               className="w-40 mr-10 ml-5 pt-2 pb-2"
               src="/logo.webp"
-              alt="logo"
+              alt="Lavishta logo"
             />
           </Link>
-          <div className="flex gap-5 items-center text-sm">
+          <ul className="flex gap-5 items-center text-sm">
             {menuItems.map((item, index) => (
-              <Link
-                href={`/${item}`}
-                className={
-                  pathName === `/${item}`
-                    ? "relative after:content-[''] after:absolute after:h-0.5 after:left-0 after:bottom-0 after:w-full after:bg-pink-500"
-                    : "relative after:content-[''] after:absolute after:h-0.5 after:left-0 after:bottom-0 after:w-0 after:bg-red-700 after:transition-all after:duration-200 hover:after:w-full"
-                }
-                key={index}
-              >
-                {item}
-              </Link>
+              <li key={index}>
+                <Link
+                  href={`/${item}`}
+                  className={
+                    pathName === `/${item}`
+                      ? "relative after:content-[''] after:absolute after:h-0.5 after:left-0 after:bottom-0 after:w-full after:bg-pink-500"
+                      : "relative after:content-[''] after:absolute after:h-0.5 after:left-0 after:bottom-0 after:w-0 after:bg-red-700 after:transition-all after:duration-200 hover:after:w-full"
+                  }
+                >
+                  {item}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
         <div className="flex flex-row gap-1">
-          <div className=" text-slate-500 hover:text-blue-600 hover:scale-110 transition duration-300">
+          <div
+            className=" text-slate-500 hover:text-blue-600 hover:scale-110 transition duration-300 "
+            aria-label="Link to Facebook"
+          >
             <CiFacebook size={34} />
           </div>
-          <div className="text-slate-500 hover:text-pink-600 hover:scale-110 transition duration-300">
+          <div
+            className="text-slate-500 hover:text-pink-600 hover:scale-110 transition duration-300"
+            aria-label="Link to Instagram"
+          >
             <CiInstagram size={35} />
           </div>
         </div>
-      </div>
+      </nav>
       {/* bottom nav */}
-      <div className="flex flex-row justify-between h-14 items-center">
+      <section
+        className="flex flex-row justify-between h-14 items-center"
+        aria-label="Bottom Navigation"
+      >
         <div>
           <NavigationMenu>
             <NavigationMenuList>
@@ -114,9 +136,9 @@ export default function Navbar() {
                   <GiHamburgerMenu size={25} /> Browse Categories
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="w-[215px]">
+                  <ul className="w-[215px]" role="menu">
                     {categories.map((category, index) => (
-                      <li className="p-3 border-b " key={index}>
+                      <li className="p-3 border-b " key={index} role="menuitem">
                         <NavigationMenuLink asChild>
                           <Link href={`/${category}`}>{category}</Link>
                         </NavigationMenuLink>
@@ -137,15 +159,15 @@ export default function Navbar() {
         </div>
         <div className="flex flex-row gap-2 text-slate-500">
           <div className="flex flex-row gap-1 ">
-            <div>
+            <div aria-label="24/7 Support Phone Number">
               <PiPhoneCallLight size={38} />
             </div>
-            <div className="text-xs items-center">
+            <address className="text-xs items-center not-italic">
               <div className="font-bold text-pink-600">24/7 Support</div>
               <div>01736275037</div>
-            </div>
+            </address>
           </div>
-          <div className="flex flex-row gap-1 ">
+          <div className="flex flex-row gap-1 " aria-label="Cart">
             <div className="hover:text-black">
               <SheetCart triggerContent={<PiBagThin size={40} />} />
             </div>
@@ -155,7 +177,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </header>
   );
 }

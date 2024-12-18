@@ -44,21 +44,34 @@ export default function CarouselCall() {
   }, [api]);
 
   return (
-    <div className="grid grid-cols-2 mt-10 ">
-      <div className="border-2 border-pink-500 p-4 ">
-        <div className="text-2xl font-bold mb-6">Sale Product</div>
+    <section
+      className="grid grid-cols-2 mt-10 "
+      aria-labelledby="sale-products-heading"
+    >
+      <article className="border-2 border-pink-500 p-4 ">
+        <header>
+          <h2 id="sale-products-heading" className="text-2xl font-bold mb-6">
+            Sale Product
+          </h2>
+        </header>
         <Carousel setApi={setApi} opts={{ loop: true }}>
-          <div className="flex gap-1 mb-2 ">
-            <Button onClick={() => api?.scrollTo(current - 1)}>
+          <nav aria-label="Carousel Navigation" className="flex gap-1 mb-2 ">
+            <Button
+              aria-label="Previous Slide"
+              onClick={() => api?.scrollTo(current - 1)}
+            >
               <AiOutlineLeft />
             </Button>
-            <Button onClick={() => api?.scrollTo(current + 1)}>
+            <Button
+              aria-label="Next Slide"
+              onClick={() => api?.scrollTo(current + 1)}
+            >
               <AiOutlineRight />
             </Button>
-          </div>
-          <CarouselContent>
+          </nav>
+          <CarouselContent role="list">
             {products.map((product: Product, index) => (
-              <CarouselItem key={index}>
+              <CarouselItem key={index} role="listitem">
                 <ProductCard
                   image={product.image}
                   title={product.title}
@@ -70,7 +83,7 @@ export default function CarouselCall() {
             ))}
           </CarouselContent>
         </Carousel>
-      </div>
-    </div>
+      </article>
+    </section>
   );
 }

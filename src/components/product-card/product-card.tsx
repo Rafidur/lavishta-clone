@@ -15,29 +15,36 @@ const ProductCard: React.FC<Product> = ({
   const percentage =
     price && price ? Math.round(((price - price) / price) * 100) : 0;
   return (
-    <div className=" p-2 group">
+    <article className=" p-2 group" aria-labelledby={`product-title-${id}`}>
       <div className="relative ">
         <Link href={`/Product/${id}`} passHref>
-          <img className="w-full h-auto" src={image} alt="image" />
+          <img
+            className="w-full h-auto"
+            src={image}
+            alt={`Image of ${title}`}
+          />
         </Link>
         <PercentageTag percentage={percentage} />
         <LabelTag label="NEW" />
         <PullUpWhite />
       </div>
-      <div className="text-center text-xs">
-        <div className=" font-semibold text-gray-800 mb-2">{title}</div>
-        <div className="text-slate-400 mb-1">{description}</div>
-        <div className="text-slate-400 mb-1">{category}</div>
+      <section className="text-center text-xs">
+        <h2 className=" font-semibold text-gray-800 mb-2">{title}</h2>
+        <p className="text-slate-400 mb-1">{description}</p>
+        <p className="text-slate-400 mb-1">{category}</p>
         <div className="flex flex-row justify-center gap-1 font-semibold">
-          <div
+          <span
             className={price ? " text-pink-500 line-through" : "text-pink-500"}
+            aria-label="Original Price"
           >
             {price}৳
+          </span>
+          <div className="text-pink-500" aria-label="Discounted Price">
+            {price}৳
           </div>
-          <div className="text-pink-500">{price}৳</div>
         </div>
-      </div>
-    </div>
+      </section>
+    </article>
   );
 };
 
